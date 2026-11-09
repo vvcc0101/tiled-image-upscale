@@ -1,0 +1,16 @@
+node_modules/
+.git/
+.env*
+*.log
+*.provider.json
+*.pending.png
+manifest.json
+work/
+work-*/
+jobs/
+output/
+outputs/
+generated/
+crops/
+*.zip
+*.tgz

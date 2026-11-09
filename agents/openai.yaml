@@ -1,0 +1,4 @@
+interface:
+  display_name: "分块生图放大"
+  short_description: "重叠裁剪、逐块生图与融合拼接，支持多倍率、缓存恢复及插值提示"
+  default_prompt: "使用 $tiled-image-upscale 将这张图按重叠裁剪后生图再拼接的方式放大，先查看目标尺寸与分块数。"

@@ -1,0 +1,26 @@
+{
+  "version": "1.0.1",
+  "date": "2026-11-10",
+  "filesScanned": 29,
+  "knownCredentialMatchFiles": [],
+  "suspiciousCredentialPatternFiles": [],
+  "personalPathMatchFiles": [],
+  "forbiddenArtifactFiles": [],
+  "brokenLocalMarkdownLinks": [],
+  "nodeModulesIncluded": false,
+  "externalImageGenIncluded": false,
+  "sourceLicense": "MIT",
+  "dependencyAuditVulnerabilities": 0,
+  "offlineTestsPassed": 14,
+  "liveGenerationRequests": 0,
+  "remoteCIExecuted": false,
+  "productComparisonContentIncluded": true,
+  "exampleAssetsIncluded": {
+    "path": "examples/demo-01/",
+    "files": 4,
+    "totalSizeMB": 22.3,
+    "rightsHolder": "repository maintainer",
+    "license": "MIT",
+    "notes": "维护者本人生成并授权公开；参数依据生成时截图，块级真实返回尺寸未核实"
+  }
+}

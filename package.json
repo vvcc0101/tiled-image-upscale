@@ -1,0 +1,32 @@
+{
+  "name": "tiled-image-upscale-skill",
+  "version": "1.0.1",
+  "private": true,
+  "description": "Standalone overlapping image-generation upscale and stitching",
+  "dependencies": {
+    "sharp": "0.35.5"
+  },
+  "license": "MIT",
+  "engines": {
+    "node": ">=20.9.0"
+  },
+  "scripts": {
+    "check": "node --check scripts/tiled-upscale.cjs && node --check scripts/provider-result.cjs && node --check scripts/image-core.cjs",
+    "test": "node --test"
+  },
+  "files": [
+    "SKILL.md",
+    "agents/",
+    "scripts/",
+    "tests/",
+    "README.md",
+    "INSTALL.md",
+    "LICENSE",
+    "THIRD_PARTY_NOTICES.md",
+    "SECURITY.md",
+    "CONTRIBUTING.md",
+    "CHANGELOG.md",
+    "docs/",
+    "examples/"
+  ]
+}
