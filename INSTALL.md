@@ -6,9 +6,33 @@ Node.js >=20.9.0，推荐22/24。在本技能根目录执行 `npm ci --omit=dev`
 
 ## 2. 外部 image-gen
 
-由用户自行从 https://apikey.fan/install/skill/image-gen 安装完整技能，包括 `scripts/node/image-gen.js`。本仓库不打包该技能，未声明其许可证，也不将本项目 MIT 许可扩展给它。
+本技能不包含生图能力，也不打包、不代理、不背书任何具体供应商或中转服务。你需要自备一个 **image-gen 脚本**：由它负责把提示词发给模型，并把结果图片写到指定路径。
 
-默认查找当前技能的同级 `image-gen/scripts/node/image-gen.js`。可以在 prepare 时用 `--provider-script` 指定脚本绝对路径。该文件会作为子进程执行：只使用可信来源，不接受陌生人提供的任意脚本。
+默认查找当前技能的同级 `image-gen/scripts/node/image-gen.js`，也可以用 `prepare --provider-script` 指定任意路径。
+
+### 2.1 接口约定
+
+脚本以 Node.js 子进程方式调起，参数如下（按名称解析，不依赖顺序）：
+
+```text
+node <provider-script> --mode image-prompt --prompt <PROMPT> --model <MODEL> \
+  --size <N>x<N> --quality <QUALITY> --n 1 --timeout <SECONDS> \
+  --image <CROP> [--image <CONTEXT>] --out <OUTPUT>
+```
+
+- `--image` 可能出现两次：第一次是待放大的分块，第二次（可选）是上下文参考图。按出现顺序读取。
+- 成功时把 PNG 写到 `--out`；非 0 退出码或未产出文件均视为失败。
+- 密钥只通过环境变量 `IMAGE_GEN_API_KEY` 传入，不要写进命令行参数或清单文件。
+- 供应商返回的 `size` 可能与请求值不同，这不视为错误，将在拼接阶段按需插值并给出 warning。
+
+该文件会作为子进程执行：**只使用可信来源**，不接受陌生人提供的任意脚本。
+
+### 2.2 查找顺序
+
+1. `prepare --provider-script <绝对路径>` 显式指定；
+2. 同级目录 `image-gen/scripts/node/image-gen.js`。
+
+脚本内容会被记录哈希；更换脚本后请使用新的工作目录，详见 [常见问题](docs/FAQ.md)。
 
 ## 3. 私密配置
 

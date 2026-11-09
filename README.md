@@ -23,7 +23,7 @@ npm ci --omit=dev
 
 如供 Codex 使用，将目录内容放在用户技能目录 `~/.codex/skills/tiled-image-upscale/`，再运行上述安装命令。Windows 的 `~` 对应当前用户目录。安装后新建聊天，以便客户端发现技能。其他客户端使用各自的技能安装目录。
 
-另行安装 [APIKEY.FAN image-gen 技能](https://apikey.fan/install/skill/image-gen)。其 [SKILL.md](https://apikey.fan/install/skill/image-gen/SKILL.md) 是技能说明，不是 MIT 授权证明。
+生图由外部 **image-gen** 技能完成：本项目不打包、不代理、也不背书任何供应商或中转服务，你可以接入任何符合接口约定的实现。具体要求见 [安装说明](INSTALL.md)。
 
 推荐目录结构：
 
@@ -109,7 +109,7 @@ npm test
 npm audit --omit=dev
 ```
 
-测试使用合成图片和本地模拟供应商，不需要真实密钥，不访问在线生图服务。GitHub CI 配置覆盖 Windows / Linux 和 Node.js 22 / 24；提供配置不等于已在这些平台实际通过。当前本地证据见 [验证记录](docs/VERIFICATION.md)。
+测试使用合成图片和本地模拟供应商，不需要真实密钥，不访问在线生图服务。GitHub Actions 覆盖 Windows / Linux 和 Node.js 22 / 24，当前 4/4 通过；通过范围仅限该矩阵，不代表所有平台。证据见 [验证记录](docs/VERIFICATION.md)。
 
 ## 安全与依赖
 
