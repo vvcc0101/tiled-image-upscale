@@ -13,7 +13,8 @@
   "dependencyAuditVulnerabilities": 0,
   "offlineTestsPassed": 14,
   "liveGenerationRequests": 0,
-  "remoteCIExecuted": false,
+  "remoteCIMatrix": "ubuntu-latest,windows-latest x node 22,24 — 4/4 pass",
+  "remoteCIExecuted": true,
   "productComparisonContentIncluded": true,
   "exampleAssetsIncluded": {
     "path": "examples/demo-01/",
